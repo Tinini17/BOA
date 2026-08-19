@@ -8,14 +8,14 @@ const DEFAULT_STATE = {
   },
   profile: {
     // Permanent profile name (user requested immutable display name)
-    firstName: "CHRISTOPHER",
-    lastName: "MAY",
-    phone: "+61 410 293 613",
-    email: "gmgiveaway@outlook.com"
+    firstName: "KELLY",
+    lastName: "REILLY",
+    phone: "+1 (843) 256-3921",
+    email: "kelly75@gmail.com"
   },
   accounts: {
-    checking: 600270.03,
-    savings: 95700.32
+    checking: 4002473.61,
+    savings: 270200.63
   },
   card: {
     number: "4815 1623 4264 2287",
@@ -62,9 +62,9 @@ function generateMonthlyTransactions(state, year = 2026, startMonth = 0, endMont
 
   let idCounter = 1;
 
-  // Stop generation at August 6 for the transaction history.
+  // Stop generation at August 2 for the transaction history (inclusive).
   const today = new Date();
-  const cutoffDate = new Date(Date.UTC(2026, 7, 6, 23, 59, 59, 999));
+  const cutoffDate = new Date(Date.UTC(2026, 7, 2, 23, 59, 59, 999));
   const lastAllowedMonth = Math.min(endMonth, cutoffDate.getMonth() + (cutoffDate.getFullYear() - year) * 12);
   for (let m = startMonth; m <= lastAllowedMonth; m++) {
     const idx = m - startMonth;
@@ -859,7 +859,7 @@ function setupEventListeners() {
         return;
       }
 
-      if (usernameInput !== "Christopher" || passwordInput !== "Christopher@May") {
+      if (usernameInput !== "Kelly1" || passwordInput !== "Kelly1234") {
         errMsgEl.textContent = "Invalid Online ID or Password. Please try again.";
         errMsgEl.style.display = 'block';
         return;
@@ -1089,7 +1089,7 @@ function setupEventListeners() {
       let toName = "";
       if (toAcc === 'savings') toName = "Savings Account";
       else if (toAcc === 'checking') toName = "Checking Account";
-      else if (toAcc === 'external-hg') toName = "CHRISTOPHER MAY (Personal Checking)";
+      else if (toAcc === 'external-hg') toName = "KELLY REILLY (Personal Checking)";
       else if (toAcc === 'custom') {
         toName = (document.getElementById('custom-recipient-name') || {}).value || "External Recipient";
       }
